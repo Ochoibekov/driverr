@@ -1,0 +1,7 @@
+<%= simple_form_for @comment, url: url, method: form_method do |f| %>
+  <%= f.input :short_desc, as: :string, label: 'short_desc' %>
+  <%= f.input :long_desc, as: :string, label: 'long_desc' %>
+  <%= f.input :driver_id, as: :hidden,  input_html: {value: @driver.id} %>
+  <%= f.input :user_id, as: :hidden,  input_html: {value: current_user.id} %>          
+  <%= f.submit 'Далее', class: 'client-profile-next-rel' %>
+<% end %>

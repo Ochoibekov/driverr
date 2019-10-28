@@ -1,0 +1,8 @@
+<%= @driver.pin %><br>
+<%= @driver.passport_number %><br>
+<%= @driver.passport_series %><br>
+<% @comments.where(driver_id: @driver.id).each do |comment| %>
+	<%= comment.short_desc %>
+	<%= comment.long_desc %><br>
+<% end %>
+<%= link_to 'add comment', drivers_comment_new_path %>

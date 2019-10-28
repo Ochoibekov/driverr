@@ -1,0 +1,7 @@
+<%= simple_form_for @driver, url: url, method: form_method do |f| %>
+  <%= f.input :pin, as: :string, label: 'ИНН' %>
+  <%= f.input :passport_number, as: :string, label: 'passport_no' %>
+  <%= f.input :passport_series, as: :string, label: 'passport_series' %>           
+  <%= f.submit 'Далее', class: 'client-profile-next-rel' %>
+<% end %>
+        

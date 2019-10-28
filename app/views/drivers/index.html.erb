@@ -1,0 +1,8 @@
+<%= link_to 'Add new driver',drivers_new_path %>
+<br>
+<% @drivers.each do |driver| %>
+	<%= driver.pin %>
+	<%= driver.passport_number %>
+	<%= driver.passport_series %>
+	<%= link_to 'Show', drivers_show_url(driver) %><br>
+<% end %>
