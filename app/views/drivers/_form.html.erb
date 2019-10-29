@@ -1,7 +1,10 @@
 <%= simple_form_for @driver, url: url, method: form_method do |f| %>
+  <%= f.input :name, as: :string, label: 'Имя' %>
+  <%= f.input :last_name, as: :string, label: 'Фамилия' %>
   <%= f.input :pin, as: :string, label: 'ИНН' %>
   <%= f.input :passport_number, as: :string, label: 'passport_no' %>
-  <%= f.input :passport_series, as: :string, label: 'passport_series' %>           
+  <%= f.input :passport_series, as: :string, label: 'passport_series' %>
+  <%= f.input :image, label: 'image' %>         
   <%= f.submit 'Далее', class: 'client-profile-next-rel' %>
 <% end %>
         

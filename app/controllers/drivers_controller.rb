@@ -40,7 +40,7 @@ class DriversController < ApplicationController
 		@user = current_user
 		@comment = Comment.new(comment_create_params)
 		if @comment.save
-			redirect_to root_path
+			redirect_to drivers_show_url(@comment.driver)
 		else
 			render :comment_new
 		end
@@ -48,7 +48,7 @@ class DriversController < ApplicationController
 
 	private
 	def create_params
-    	params.require(:driver).permit(:pin, :passport_number, :passport_series)
+    	params.require(:driver).permit(:name, :last_name, :pin, :passport_number, :passport_series, :image)
   	end
   	def comment_create_params
     	params.require(:comment).permit(:short_desc, :long_desc, :driver_id, :user_id)
