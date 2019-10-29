@@ -1,6 +1,15 @@
 class DriversController < ApplicationController
 	def index
-		@drivers=Driver.all
+		if params[:search].present?
+			@driver = Driver.find_by(pin: params[:pin]) if params[:pin].present?
+			@drivers = Driver.search(
+	        params[:search],
+	        fields: %i[pin passport_number],
+	        page: params[:page],
+	        per_page: 2)
+	    else
+			@drivers=Driver.all
+	    end
 	end
 
 	def new

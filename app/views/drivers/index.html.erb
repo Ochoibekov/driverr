@@ -6,3 +6,45 @@
 	<%= driver.passport_series %>
 	<%= link_to 'Show', drivers_show_url(driver) %><br>
 <% end %>
+
+
+<div class="search_field">
+  <div class="container" style=''>
+    <div class="client-list">
+      <div class="row">
+        <div class="col-12" style="padding: 0">
+          <div class="form-inline special-form" style="">
+            <%= simple_form_for :search, url: root_path, method: :get, enforce_utf8: false, html: {class: 'users-search-form search_box'} do |f| %>
+              <%= f.hidden_field :pin, name: :pin, value: params[:pin] if params[:pin].present? %>
+              <div class="input-group search_form no-gutters">
+                <%= f.input '',
+                            required: false,
+                            input_html: {
+                              value: params[:search],
+                              name: :search,
+                              class: 'search_input',
+                              style: '',
+                              placeholder: 'Поиск клиента(ФИО, ИНН, №группы)'
+                            } %>
+                <div class="input-group-append">
+                  <%= f.submit 'Найти', name: nil, class: 'search_btn' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="client-list">
+        <% if @drivers.present? %>
+          <p class="search-result-count">
+            Клиентов найдено: <span><%= @drivers.count %></span>
+          </p>
+        
+        <% elsif params[:search].present? %>
+          
+            <p class="not-found-title">Клиент не найден!</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
