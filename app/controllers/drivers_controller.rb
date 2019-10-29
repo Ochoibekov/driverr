@@ -4,7 +4,7 @@ class DriversController < ApplicationController
 			@driver = Driver.find_by(pin: params[:pin]) if params[:pin].present?
 			@drivers = Driver.search(
 	        params[:search],
-	        fields: %i[pin passport_number],
+	        fields: %i[pin passport_number name last_name],
 	        page: params[:page],
 	        per_page: 2)
 	    else
