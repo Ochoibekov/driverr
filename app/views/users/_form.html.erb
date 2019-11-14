@@ -1,0 +1,8 @@
+<%= simple_form_for @user, url: url, method: form_method do |f| %>
+  <%= f.input :mobile, as: :string, label: 'Номер телефона' %>
+  <%= f.input :password, as: :string, label: 'Пароль' %>
+  <%= f.input :password_confirmation, as: :string, label: 'Пароль' %>
+  <%= f.input :email, label: 'image' %>         
+  <%= f.submit 'Далее', class: 'client-profile-next-rel' %>
+<% end %>
+        

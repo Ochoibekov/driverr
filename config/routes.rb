@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "drivers#index"
   get "drivers/new"
+  get "users/new"
+  get "users/index", to: "users#index", as: :users
+  post "users/create"
   get "driver/:id", to: "drivers#show", as: :drivers_show
   post "drivers/create"
   post "drivers/comment_create"
