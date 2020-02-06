@@ -1,13 +1,5 @@
 <%= link_to 'Add new driver',drivers_new_path %>
 <br>
-<% @drivers.each do |driver| %>
-  <%= driver.name %>
-  <%= driver.last_name %>
-	<%= driver.pin %>
-	<%= driver.passport_number %>
-	<%= driver.passport_series %>
-	<%= link_to 'Show', drivers_show_url(driver) %><br>
-<% end %>
 
 
 <div class="search_field">
@@ -50,3 +42,25 @@
     </div>
   </div>
 </div>
+<table>
+  <tr>
+    <th>pin</th>
+    <th>name</th>
+    <th>last_name</th>
+    <th>image</th>
+    <th>Action</th>
+  </tr>
+<% @drivers.each do |driver| %>
+<tr>
+  <td><%= driver.pin %></td>
+  <td><%= driver.name %></td>
+  <td><%= driver.last_name %></td>
+  <% if driver.image.attached? %></td>
+  <td><img src="<%= url_for driver.image %>" alt="" width="100px" height="100px" class='ml-1 mr-1'></td>
+  <% end %>
+  <%#= driver.passport_number %>
+  <%#= driver.passport_series %>
+  <td><%= link_to 'Show', drivers_show_url(driver) %><br></td>
+<% end %>
+</tr>
+</table>

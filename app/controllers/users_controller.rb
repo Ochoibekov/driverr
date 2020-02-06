@@ -15,8 +15,24 @@ class UsersController < ApplicationController
   		@users=User.all
   	end
 
+  	def edit
+  		@user = User.find(params[:id])
+  	end
+
+  	def update
+  		@user = User.find(params[:id])
+  		@user.update(update_params)
+  	end
+
+  	def destroy
+  		
+  	end
+
 	private
 	def create_params
+    	params.require(:user).permit(:mobile, :email, :password, :password_confirmation)
+  	end
+  	def update_params
     	params.require(:user).permit(:mobile, :email, :password, :password_confirmation)
   	end
 end

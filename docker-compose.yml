@@ -1,0 +1,20 @@
+version: '3.2'
+services:
+
+  app:
+    image: test/drivers
+    container_name: web_app
+    restart: always
+    ports:
+    - '3000:3000'
+    environment:
+    - DATABASE_URL=postgresql://postgres@10.206.67.5:5432/onlinerequest
+    - DEVISE_SECRET=15a255d1560b03b31c1388b31764695cd010c6bcb9bbaa301eabf0a4fafbe4502cf028f560cd806b575fd4601b2fe1efa7bdcda6091d7d570fc02f9b51cd79fb
+    volumes:
+    - '~/orequest_docker/public:/app/public'
+    command:
+    - /bin/sh
+    - -c
+    - |
+      bundle exec rake db:migrate
+      bundle exec puma -C config/puma.rb

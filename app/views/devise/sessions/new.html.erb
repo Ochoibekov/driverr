@@ -5,10 +5,11 @@
     <%= f.input :mobile,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "mobile" } %>
-    <%= f.hidden_field :password,
+                input_html: { autocomplete: "mobile" },
+                placeholder: "0555444333" %>
+    <%= f.input :password,
                 required: false,
-                value: "123456",
+                # value: "123456",
                 input_html: { autocomplete: "current-password" } %>
     <%= f.hidden_field :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>

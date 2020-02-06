@@ -2,7 +2,10 @@
   <%= f.input :mobile, as: :string, label: 'Номер телефона' %>
   <%= f.input :password, as: :string, label: 'Пароль' %>
   <%= f.input :password_confirmation, as: :string, label: 'Пароль' %>
-  <%= f.input :email, label: 'image' %>         
+ <% time = Time.now %>
+ <% logind = "#{time.year}" + "#{time.month}" + "#{time.day}" + "#{time.hour}" + "#{time.min}" + "#{time.sec}" %>
+ 
+  <%= f.hidden_field :email, value: "#{logind}@yahoo.com" %>         
   <%= f.submit 'Далее', class: 'client-profile-next-rel' %>
 <% end %>
         

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
-	protected
 
+protected
   def configure_permitted_parameters
     added_attrs = [:mobile, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
